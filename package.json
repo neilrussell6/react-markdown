@@ -1,34 +1,63 @@
 {
-  "name": "playground-showcase",
-  "version": "0.1.0",
-  "private": true,
-  "dependencies": {
-    "@testing-library/jest-dom": "^4.2.4",
-    "@testing-library/react": "^9.5.0",
-    "@testing-library/user-event": "^7.2.1",
-    "react": "^16.13.1",
-    "react-dom": "^16.13.1",
-    "react-scripts": "3.4.1"
+  "name": "root",
+  "version": "0.0.0",
+  "description": "React Markdown",
+  "keywords": [
+    "react",
+    "markdown"
+  ],
+  "author": "Neil Russell <neilrussell6@gmail.com>",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/neilrussell6/react-markdown.git"
   },
+  "bugs": {
+    "url": "https://github.com/neilrussell6/react-markdown/issues"
+  },
+  "homepage": "https://github.com/neilrussell6/react-markdown#readme",
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "ls": "lerna ls",
+    "bootstrap": "lerna bootstrap",
+    "lerna:update": "lernaupdate",
+    "publish": "lerna publish",
+    "_pkg:init": "lerna run init --stream --concurrency=1",
+    "pkg:build": "lerna run build --stream --concurrency=1",
+    "pkg:test": "lerna run test --stream --concurrency=1 -- --colors",
+    "pkg:lint": "lerna run lint --stream --concurrency=1 -- --colors",
+    "markdown-api:serve": "npm run serve --prefix ./packages/markdown-api",
+    "_web-ui:deploy:dev": "npm run cdk:deploy:dev --prefix ./packages/web-ui-aws",
+    "_web-ui:deploy:staging": "npm run cdk:deploy:staging --prefix ./packages/web-ui-aws",
+    "_web-ui:deploy:production": "npm run cdk:deploy:production --prefix ./packages/web-ui-aws",
+    "web-ui:deploy:dev": "npm-run-all bootstrap pkg:lint _test:all _web-ui:deploy:dev",
+    "web-ui:deploy:staging": "npm-run-all bootstrap pkg:lint _test:all _web-ui:deploy:staging",
+    "web-ui:deploy:production": "npm-run-all bootstrap pkg:lint _test:all _web-ui:deploy:production",
+    "web-ui:serve": "npm run serve --prefix ./packages/web-ui",
+    "web-ui:build": "npm run _build --prefix ./packages/web-ui",
+    "_ci:lint": "npm run pkg:lint",
+    "_test:all": "lerna run _test:all --stream --concurrency=1 -- --colors",
+    "_ci:test:all": "lerna run _ci:test:all --stream --concurrency=1 -- --colors",
+    "_git:pre-commit": "lerna run _git:pre-commit --concurrency 1 --stream",
+    "_git:pre-push": "lerna run _git:pre-push --concurrency 1 --stream",
+    "_init:envs": "cp -n .env.tpl .env || true",
+    "init": "npm i && npm run _init:envs && npm run bootstrap && npm run _pkg:init",
+    "help": "package-json-help.js"
   },
-  "eslintConfig": {
-    "extends": "react-app"
+  "engines": {
+    "npm": "=6.14.4"
   },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
+  "dependencies": {},
+  "devDependencies": {
+    "husky": "^4.2.5",
+    "lerna": "^3.21.0",
+    "lerna-update-wizard": "^0.17.8",
+    "npm-run-all": "^4.1.5",
+    "package-json-help": "0.0.10",
+    "prettier": "^2.0.5"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run _git:pre-commit",
+      "pre-push": "npm run _git:pre-push"
+    }
   }
 }

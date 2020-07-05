@@ -1,0 +1,34 @@
+{
+  "name": "@react-markdown/markdown-api",
+  "description": "A Markdown API for the React Web UI",
+  "keywords": [
+    "API",
+    "express",
+    "markdown",
+    "javascript"
+  ],
+  "version": "0.0.0",
+  "author": "Neil Russell <neilrussell6@gmail.com>",
+  "homepage": "./",
+  "scripts": {
+    "serve": "dotenv -e .env -- nodemon src/index.js",
+    "npm:audit": "audit-ci --critical",
+    "help": "package-json-help.js",
+    "init": "cp -n .env.tpl .env || true"
+  },
+  "engines": {
+    "npm": "=6.14.4"
+  },
+  "dependencies": {
+    "bluebird": "^3.7.2",
+    "express": "^4.17.1",
+    "ramda": "^0.27.0"
+  },
+  "devDependencies": {
+    "audit": "npm:audit@0.0.6",
+    "audit-ci": "^3.0.1",
+    "cors": "^2.8.5",
+    "dotenv-cli": "^3.1.0",
+    "nodemon": "^2.0.2"
+  }
+}

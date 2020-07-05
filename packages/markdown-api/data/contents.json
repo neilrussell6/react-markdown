@@ -1,0 +1,4 @@
+[
+  { "id": 1, "categoryId": 1, "label": "Markdown Sample One", "markdown": "markdown_sample1.md" },
+  { "id": 2, "categoryId": 1, "label": "Markdown Sample Two", "markdown": "markdown_sample2.md" }
+]

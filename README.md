@@ -1,68 +1,90 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+React Markdown
+===
 
-## Available Scripts
+> React App and API to display Markdown
 
-In the project directory, you can run:
 
-### `npm start`
+Available commands
+---
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+to see a list of available commands run:
+```bash
+npm run help
+```
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
 
-### `npm test`
+Quick Start (local)
+---
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+ 1. run ``npm run init`` initiate project (installs all dependencies for all packages)
+ 
+ 2. run ``npm run markdown-api:serve`` to serve the API locally
 
-### `npm run build`
+    the Markdown API is now available on localhost port 7000
+    
+    you can test it with HTTPie as follows:
+    
+    ```bash
+    http :7000/categories
+    http :7000/contents
+    http :7000/contents/1
+    ```
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+ 4. run ``npm run web-ui:start`` to serve Web UI locally
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+    the Web UI is now available on [localhost port 3000](http://localhost:3000)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `npm run eject`
+Custom Markdown
+---
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+To add your own navigation and markdown, simply update the categories and contents JSON files here:
+ - ``packages/markdown-api/data/categories.json``
+ - ``packages/markdown-api/data/contents.json``
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+NOTE: each row must have a unique id
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+And add your own markdown files here:
+``packages/markdown-api/data/markdown``
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
 
-## Learn More
+Custom Markdown : Envs
+---
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+you can also configure where the API finds the JSON files and markdown in
+``packages/markdown-api/.env``
 
-To learn React, check out the [React documentation](https://reactjs.org/).
 
-### Code Splitting
+Monorepo
+---
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+> This is a monorepo that uses Lerna
 
-### Analyzing the Bundle Size
+so instead of running ``npm i`` in each package, run:
+```
+npm run bootstrap
+```
+in the project root, this will install all dependencies and also link local dependencies
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
 
-### Making a Progressive Web App
+Contributing
+---
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
+Before contributing please read through everything in [Contributing](docs/contributing.md)
 
-### Advanced Configuration
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
+Testing
+---
 
-### Deployment
+```bash
+npm run test
+npm run test:watch
+```
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
 
-### `npm run build` fails to minify
+Additional Docs
+---
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+ - [Prerequisites](docs/prerequisites.md)
+ - [Contributing](docs/contributing.md)
+ - [Node Version](docs/node-version.md)

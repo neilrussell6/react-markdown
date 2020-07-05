@@ -1,0 +1,16 @@
+{
+  "ls": "list all packages",
+  "bootstrap": "bootstrap all packages, installing all their dependencies and linking any cross-dependencies",
+  "lerna:update": "update Lerna",
+  "publish": "publish new version (through Lerna)",
+  "pkg:build": "build all packages",
+  "pkg:test": "rest all packages",
+  "pkg:lint": "lint all packages",
+  "markdown-api:serve": "serve markdown-api package locally",
+  "web-ui:serve": "serve web-ui package locally",
+  "web-ui:build": "build web-ui package",
+  "web-ui:deploy:dev": "deploy web-ui package to AWS dev stage",
+  "web-ui:deploy:staging": "deploy web-ui package to AWS staging stage",
+  "web-ui:deploy:production": "deploy web-ui package to AWS production stage",
+  "init": "initialize project (including all packages)"
+}

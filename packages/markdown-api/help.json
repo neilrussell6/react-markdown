@@ -1,0 +1,5 @@
+{
+  "init": "initialize package",
+  "npm:audit": "audit NPM dependencies for critical vulnerabilities",
+  "serve": "serve API"
+}

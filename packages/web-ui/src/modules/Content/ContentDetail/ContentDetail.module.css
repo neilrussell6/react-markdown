@@ -1,0 +1,55 @@
+/* container */
+
+.container {
+  height: 100%;
+  line-height: var(--text-line-height);
+}
+
+.container > * {
+  margin-left: 60px;
+  margin-right: 60px;
+}
+
+/* text */
+
+.container h1 {
+  margin: 0;
+  padding: 40px 60px;
+}
+
+.container h2 {
+  margin: 60px 0 20px;
+  padding: 20px 60px;
+}
+
+.container h2:first-of-type {
+  margin-top: 0;
+}
+
+.container h4, .container h5, .container h6 {
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+.container p, .container code {
+  background-color: var(--code-bg-color) !important;
+  padding: 4px 10px;
+  font-size: var(--code-font-size) !important;
+}
+
+.container p {
+  background-color: transparent !important;
+}
+
+.container pre {
+  background-color: var(--code-bg-color) !important;
+  border: 1px solid var(--code-bdr-color);
+  box-shadow: var(--code-box-shadow);
+  padding: 15px 30px !important;
+  margin: 30px 40px;
+}
+
+.container pre code {
+  font-size: var(--code-font-size) !important;
+  line-height: var(--code-line-height);
+}
