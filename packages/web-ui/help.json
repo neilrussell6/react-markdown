@@ -6,7 +6,7 @@
   "test:ui": "run all UI component tests",
   "test:ui:watch": "run all UI component tests (in watch mode)",
   "code:format": "auto format all code",
-  "lint": "lint all code",
+  "code:lint": "lint all code",
   "test:all": "run all tests",
   "npm:audit": "audit NPM dependencies for critical vulnerabilities"
 }

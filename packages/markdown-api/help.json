@@ -2,6 +2,6 @@
   "init": "initialize package",
   "npm:audit": "audit NPM dependencies for critical vulnerabilities",
   "code:format": "auto format all code",
-  "lint": "lint all code",
+  "code:lint": "lint all code",
   "serve": "serve API"
 }

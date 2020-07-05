@@ -24,7 +24,7 @@
     "_pkg:init": "lerna run init --stream --concurrency=1",
     "pkg:build": "lerna run build --stream --concurrency=1",
     "pkg:test": "lerna run test --stream --concurrency=1 -- --colors",
-    "pkg:lint": "lerna run lint --stream --concurrency=1 -- --colors",
+    "pkg:lint": "lerna run code:lint --stream --concurrency=1 -- --colors",
     "markdown-api:serve": "npm run serve --prefix ./packages/markdown-api",
     "_web-ui:deploy:dev": "npm run cdk:deploy:dev --prefix ./packages/web-ui-aws",
     "_web-ui:deploy:staging": "npm run cdk:deploy:staging --prefix ./packages/web-ui-aws",

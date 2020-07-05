@@ -7,4 +7,5 @@ const config = {
   testMatch: ['**/*[!ui].test.js'],
 }
 
+// eslint-disable-next-line no-undef
 module.exports = config
