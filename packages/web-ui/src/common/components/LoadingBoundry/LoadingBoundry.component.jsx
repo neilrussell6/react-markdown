@@ -32,4 +32,3 @@ LoadingBoundry.defaultProps = {
 }
 
 export default LoadingBoundry
-

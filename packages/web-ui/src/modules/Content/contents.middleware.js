@@ -20,7 +20,9 @@ import { SELECT_CONTENT } from './selectedContent.reducer'
 // ... on App initialization
 //---------------------------------
 
-export const contentsInitFlow = ({ APP_INIT }) => ({ dispatch }) => next => (action) => {
+export const contentsInitFlow = ({ APP_INIT }) => ({ dispatch }) => (next) => (
+  action,
+) => {
   next(action)
 
   const { type } = action
@@ -36,13 +38,14 @@ export const contentsInitFlow = ({ APP_INIT }) => ({ dispatch }) => next => (act
 // ... or fails with the received error message
 //---------------------------------
 
-export const apiGetContentsFlow = ({ API }) => ({ dispatch }) => next => (action) => {
+export const apiGetContentsFlow = ({ API }) => ({ dispatch }) => (next) => (
+  action,
+) => {
   next(action)
 
   const { type } = action
   if (type === API_GET_CONTENTS) {
-    API
-      .getContents()
+    API.getContents()
       .catch((e) => {
         dispatch(apiGetContentsFailure(e.message))
       })
@@ -58,7 +61,7 @@ export const apiGetContentsFlow = ({ API }) => ({ dispatch }) => next => (action
 // ... with list of contents returned from API
 //---------------------------------
 
-export const setContentsFlow = ({ dispatch }) => next => (action) => {
+export const setContentsFlow = ({ dispatch }) => (next) => (action) => {
   next(action)
 
   const { type, payload } = action
@@ -72,7 +75,7 @@ export const setContentsFlow = ({ dispatch }) => next => (action) => {
 // ... starts the API get content flow
 //---------------------------------
 
-export const selectContentFlow = ({ dispatch }) => next => (action) => {
+export const selectContentFlow = ({ dispatch }) => (next) => (action) => {
   next(action)
 
   const { type, payload: id } = action
@@ -88,13 +91,14 @@ export const selectContentFlow = ({ dispatch }) => next => (action) => {
 // ... or fails with the received error message
 //---------------------------------
 
-export const apiGetContentFlow = ({ API }) => ({ dispatch }) => next => (action) => {
+export const apiGetContentFlow = ({ API }) => ({ dispatch }) => (next) => (
+  action,
+) => {
   next(action)
 
   const { type, payload: id } = action
   if (type === API_GET_CONTENT) {
-    API
-      .getContent(id)
+    API.getContent(id)
       .catch((e) => {
         dispatch(apiGetContentFailure(e.message))
       })
@@ -110,7 +114,7 @@ export const apiGetContentFlow = ({ API }) => ({ dispatch }) => next => (action)
 // ... with content returned from API
 //---------------------------------
 
-export const setContentFlow = ({ dispatch }) => next => (action) => {
+export const setContentFlow = ({ dispatch }) => (next) => (action) => {
   next(action)
 
   const { type, payload } = action
@@ -118,4 +122,3 @@ export const setContentFlow = ({ dispatch }) => next => (action) => {
     dispatch(setContent(payload))
   }
 }
-

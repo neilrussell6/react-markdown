@@ -48,7 +48,9 @@ describe('modules/Content/contents.reducer', () => {
       // then ... should succeed with API data
       expect(nextStub).toHaveBeenCalledWith(action)
       expect(getContentsStub).toHaveBeenCalledWith()
-      expect(dispatchStub).toHaveBeenCalledWith(apiGetContentsSuccess('API DATA'))
+      expect(dispatchStub).toHaveBeenCalledWith(
+        apiGetContentsSuccess('API DATA'),
+      )
     })
 
     it('should fail with error message', async () => {
@@ -58,7 +60,9 @@ describe('modules/Content/contents.reducer', () => {
       const store = { dispatch: dispatchStub }
       const nextStub = jest.fn()
       // ... API request to retrieve contents will fail with message
-      const getContentsStub = jest.fn().mockRejectedValue(new Error('ERROR MESSAGE'))
+      const getContentsStub = jest
+        .fn()
+        .mockRejectedValue(new Error('ERROR MESSAGE'))
       const apiStub = { getContents: getContentsStub }
 
       // when ... we get contents from the API
@@ -71,7 +75,9 @@ describe('modules/Content/contents.reducer', () => {
       // then ... should succeed with API data
       expect(nextStub).toHaveBeenCalledWith(action)
       expect(getContentsStub).toHaveBeenCalledWith()
-      expect(dispatchStub).toHaveBeenCalledWith(apiGetContentsFailure('ERROR MESSAGE'))
+      expect(dispatchStub).toHaveBeenCalledWith(
+        apiGetContentsFailure('ERROR MESSAGE'),
+      )
     })
   })
 

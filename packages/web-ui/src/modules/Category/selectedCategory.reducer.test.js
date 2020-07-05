@@ -1,6 +1,4 @@
-import SUT, {
-  selectCategory,
-} from './selectedCategory.reducer'
+import SUT, { selectCategory } from './selectedCategory.reducer'
 
 describe('modules/Category/selectedCategory.reducer', () => {
   describe('selectCategory', () => {

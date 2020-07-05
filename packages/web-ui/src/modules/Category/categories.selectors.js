@@ -4,10 +4,7 @@ import { assoc, map, prop } from 'ramda'
 import { denormalize } from '../../common/utils/data'
 
 export const categoriesSelector = createSelector(
-  [
-    prop('categories'),
-    prop('selectedCategory'),
-  ],
+  [prop('categories'), prop('selectedCategory')],
   (_categories, selectedCategory) => {
     const categories = denormalize('id')(_categories)
     if (selectedCategory === null) {
@@ -15,7 +12,9 @@ export const categoriesSelector = createSelector(
     }
     const selectedId = selectedCategory.toString()
     return {
-      categories: map(x => assoc('isSelected', selectedId === x.id)(x))(categories)
+      categories: map((x) => assoc('isSelected', selectedId === x.id)(x))(
+        categories,
+      ),
     }
   },
 )

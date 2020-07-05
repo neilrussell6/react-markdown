@@ -9,16 +9,23 @@ const ContentNav = ({ onSelectContent, contents, isLoading }) => (
   <div className={styles.container}>
     <LoadingBoundry isLoading={isLoading}>
       <ul className={styles.navList}>
-        {map(({ id, label, isSelected }) => (
-          <li
-            className={`${styles.navListItem} ${isSelected ? styles.navListItemSelected : ''}`}
-            key={id}
-            role="listbox"
-            tabIndex={-1}
-            onClick={() => onSelectContent(id)}
-            onKeyDown={() => onSelectContent(id)}
-          >{label}</li>
-        ), contents)}
+        {map(
+          ({ id, label, isSelected }) => (
+            <li
+              className={`${styles.navListItem} ${
+                isSelected ? styles.navListItemSelected : ''
+              }`}
+              key={id}
+              role="listbox"
+              tabIndex={-1}
+              onClick={() => onSelectContent(id)}
+              onKeyDown={() => onSelectContent(id)}
+            >
+              {label}
+            </li>
+          ),
+          contents,
+        )}
       </ul>
     </LoadingBoundry>
   </div>
@@ -26,10 +33,12 @@ const ContentNav = ({ onSelectContent, contents, isLoading }) => (
 
 ContentNav.propTypes = {
   onSelectContent: PropTypes.func.isRequired,
-  contents: PropTypes.arrayOf(PropTypes.shape({
-    id: PropTypes.string,
-    label: PropTypes.string,
-  })),
+  contents: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.string,
+      label: PropTypes.string,
+    }),
+  ),
   isLoading: PropTypes.bool,
 }
 
@@ -39,4 +48,3 @@ ContentNav.defaultProps = {
 }
 
 export default ContentNav
-

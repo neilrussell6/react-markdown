@@ -11,11 +11,11 @@ import { codepenEmbed as style } from 'react-syntax-highlighter/dist/esm/styles/
 class MarkdownCode extends PureComponent {
   static propTypes = {
     value: PropTypes.string.isRequired,
-    language: PropTypes.string
+    language: PropTypes.string,
   }
 
   static defaultProps = {
-    language: null
+    language: null,
   }
 
   render() {
@@ -29,4 +29,3 @@ class MarkdownCode extends PureComponent {
 }
 
 export default MarkdownCode
-

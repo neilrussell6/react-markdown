@@ -4,10 +4,7 @@ import { assoc, map, prop, reduce, filter, propEq } from 'ramda'
 import { denormalize } from '../../common/utils/data'
 
 export const contentsSelector = createSelector(
-  [
-    prop('contents'),
-    prop('selectedContent'),
-  ],
+  [prop('contents'), prop('selectedContent')],
   (_contents, selectedContent) => {
     const contents = denormalize('id')(_contents)
     if (selectedContent === null) {
@@ -15,37 +12,37 @@ export const contentsSelector = createSelector(
     }
     const selectedId = selectedContent.toString()
     return {
-      contents: map(x => assoc('isSelected', selectedId === x.id)(x))(contents)
+      contents: map((x) => assoc('isSelected', selectedId === x.id)(x))(
+        contents,
+      ),
     }
   },
 )
 
 export const contentsForSelectedCategorySelector = createSelector(
-  [
-    contentsSelector,
-    prop('selectedCategory'),
-  ],
+  [contentsSelector, prop('selectedCategory')],
   ({ contents }, selectedCategory) => {
     if (selectedCategory === null) {
       return []
     }
     return {
-      contents: filter(propEq('categoryId', selectedCategory))(contents)
+      contents: filter(propEq('categoryId', selectedCategory))(contents),
     }
-  }
+  },
 )
 
 export const selectedContentMarkdownSelector = createSelector(
-  [
-    contentsSelector,
-    prop('selectedContent'),
-  ],
+  [contentsSelector, prop('selectedContent')],
   ({ contents }, selectedContent) => {
     if (selectedContent === null) {
       return { markdown: null }
     }
     return {
-      markdown: reduce((result, x) => x.id === selectedContent.toString() ? x.markdown : result, null)(contents)
+      markdown: reduce(
+        (result, x) =>
+          x.id === selectedContent.toString() ? x.markdown : result,
+        null,
+      )(contents),
     }
-  }
+  },
 )

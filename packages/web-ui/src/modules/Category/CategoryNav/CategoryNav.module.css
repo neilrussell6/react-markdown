@@ -28,12 +28,12 @@
   white-space: nowrap;
   border-style: solid;
   border-width: 0 1px 0 1px;
-  composes: navListItem from "../../../index.module.css";
+  composes: navListItem from '../../../index.module.css';
 }
 
 /* this doesn't work in css modules */
 /*.navListItem:hover {*/
-  /*composes: navListItemHover from "../../../index.module.css";*/
+/*composes: navListItemHover from "../../../index.module.css";*/
 /*}*/
 .navListItem:hover {
   background-color: var(--nav-bg-color-hover);
@@ -44,5 +44,5 @@
 }
 
 .navListItemSelected {
-  composes: navListItemSelected from "../../../index.module.css";
+  composes: navListItemSelected from '../../../index.module.css';
 }

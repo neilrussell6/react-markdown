@@ -1,6 +1,4 @@
-import SUT, {
-  selectContent,
-} from './selectedContent.reducer'
+import SUT, { selectContent } from './selectedContent.reducer'
 
 describe('modules/Content/selectedContent.reducer', () => {
   describe('selectContent', () => {

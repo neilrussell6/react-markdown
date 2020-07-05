@@ -1,6 +1,4 @@
-import SUT, {
-  setCategories,
-} from './categories.reducer'
+import SUT, { setCategories } from './categories.reducer'
 
 describe('modules/Category/categories.reducer', () => {
   describe('overwriteCategories', () => {

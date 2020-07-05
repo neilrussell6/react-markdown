@@ -17,8 +17,6 @@ describe('modules/Category/CategoryNav/CategoryNav.selector', () => {
     // when ... we select for CategoryNav component's props
     // then ... should return all expected keys
     const result = SUT.CategoryNavComponentSelector(state)
-    expect(keys(result)).toEqual([
-      'categories',
-    ])
+    expect(keys(result)).toEqual(['categories'])
   })
 })

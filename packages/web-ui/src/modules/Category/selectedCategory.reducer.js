@@ -5,7 +5,10 @@ import { createReducer } from '@reduxjs/toolkit'
 //---------------------------------
 
 export const SELECT_CATEGORY = '[category] select'
-export const selectCategory = id => ({ type: SELECT_CATEGORY, payload: { id } })
+export const selectCategory = (id) => ({
+  type: SELECT_CATEGORY,
+  payload: { id },
+})
 
 //---------------------------------
 // reducers

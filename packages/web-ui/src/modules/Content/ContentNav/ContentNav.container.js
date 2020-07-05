@@ -6,11 +6,8 @@ import { ContentNavComponentSelector } from './ContentNav.selectors'
 
 const mapStateToProps = ContentNavComponentSelector
 
-const mapDispatchToProps = dispatch => ({
-  onSelectContent: id => dispatch(selectContent(id)),
+const mapDispatchToProps = (dispatch) => ({
+  onSelectContent: (id) => dispatch(selectContent(id)),
 })
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps,
-)(Component)
+export default connect(mapStateToProps, mapDispatchToProps)(Component)

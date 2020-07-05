@@ -1,6 +1,4 @@
-import SUT, {
-  setContents,
-} from './contents.reducer'
+import SUT, { setContents } from './contents.reducer'
 
 describe('modules/Content/contents.reducer', () => {
   describe('overwriteContents', () => {

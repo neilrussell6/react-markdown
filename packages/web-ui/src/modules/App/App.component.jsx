@@ -8,11 +8,17 @@ const App = () => (
   <div className={styles.container}>
     <header className={styles.header}>
       <div className={styles.title}>React Markdown</div>
-      <div className={styles.nav}><CategoryNav /></div>
+      <div className={styles.nav}>
+        <CategoryNav />
+      </div>
     </header>
     <div className={styles.body}>
-      <nav className={styles.nav}><ContentNav /></nav>
-      <main className={styles.main}><ContentDetail /></main>
+      <nav className={styles.nav}>
+        <ContentNav />
+      </nav>
+      <main className={styles.main}>
+        <ContentDetail />
+      </main>
     </div>
   </div>
 )

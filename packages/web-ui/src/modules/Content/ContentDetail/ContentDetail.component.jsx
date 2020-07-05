@@ -9,10 +9,7 @@ import styles from './ContentDetail.module.css'
 const ContentDetail = ({ markdown, isLoading }) => (
   <div className={styles.container}>
     <LoadingBoundry isLoading={isLoading} loaderColor="#9ad2ff">
-      <ReactMarkdown
-        source={markdown}
-        renderers={{ code: MarkdownCode }}
-      />
+      <ReactMarkdown source={markdown} renderers={{ code: MarkdownCode }} />
     </LoadingBoundry>
   </div>
 )

@@ -13,7 +13,9 @@ import {
 // ... on App initialization
 //---------------------------------
 
-export const categoriesInitFlow = ({ APP_INIT }) => ({ dispatch }) => next => (action) => {
+export const categoriesInitFlow = ({ APP_INIT }) => ({ dispatch }) => (
+  next,
+) => (action) => {
   next(action)
 
   const { type } = action
@@ -29,13 +31,14 @@ export const categoriesInitFlow = ({ APP_INIT }) => ({ dispatch }) => next => (a
 // ... or fails with the received error message
 //---------------------------------
 
-export const apiGetCategoriesFlow = ({ API }) => ({ dispatch }) => next => (action) => {
+export const apiGetCategoriesFlow = ({ API }) => ({ dispatch }) => (next) => (
+  action,
+) => {
   next(action)
 
   const { type } = action
   if (type === API_GET_CATEGORIES) {
-    API
-      .getCategories()
+    API.getCategories()
       .then((response) => {
         dispatch(apiGetCategoriesSuccess(response))
       })
@@ -51,7 +54,7 @@ export const apiGetCategoriesFlow = ({ API }) => ({ dispatch }) => next => (acti
 // ... with list of categories returned from API
 //---------------------------------
 
-export const setCategoriesFlow = ({ dispatch }) => next => (action) => {
+export const setCategoriesFlow = ({ dispatch }) => (next) => (action) => {
   next(action)
 
   const { type, payload } = action

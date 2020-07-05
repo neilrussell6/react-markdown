@@ -26,12 +26,15 @@
   margin-top: 0;
 }
 
-.container h4, .container h5, .container h6 {
+.container h4,
+.container h5,
+.container h6 {
   margin-top: 30px;
   margin-bottom: 30px;
 }
 
-.container p, .container code {
+.container p,
+.container code {
   background-color: var(--code-bg-color) !important;
   padding: 4px 10px;
   font-size: var(--code-font-size) !important;

@@ -6,11 +6,8 @@ import { CategoryNavComponentSelector } from './CategoryNav.selectors'
 
 const mapStateToProps = CategoryNavComponentSelector
 
-const mapDispatchToProps = dispatch => ({
-  onSelectCategory: id => dispatch(selectCategory(id)),
+const mapDispatchToProps = (dispatch) => ({
+  onSelectCategory: (id) => dispatch(selectCategory(id)),
 })
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps,
-)(Component)
+export default connect(mapStateToProps, mapDispatchToProps)(Component)

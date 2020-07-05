@@ -48,7 +48,9 @@ describe('modules/Category/categories.reducer', () => {
       // then ... should succeed with API data
       expect(nextStub).toHaveBeenCalledWith(action)
       expect(getCategoriesStub).toHaveBeenCalledWith()
-      expect(dispatchStub).toHaveBeenCalledWith(apiGetCategoriesSuccess('API DATA'))
+      expect(dispatchStub).toHaveBeenCalledWith(
+        apiGetCategoriesSuccess('API DATA'),
+      )
     })
 
     it('should fail with error message', async () => {
@@ -58,7 +60,9 @@ describe('modules/Category/categories.reducer', () => {
       const store = { dispatch: dispatchStub }
       const nextStub = jest.fn()
       // ... API request to retrieve categories will fail with message
-      const getCategoriesStub = jest.fn().mockRejectedValue(new Error('ERROR MESSAGE'))
+      const getCategoriesStub = jest
+        .fn()
+        .mockRejectedValue(new Error('ERROR MESSAGE'))
       const apiStub = { getCategories: getCategoriesStub }
 
       // when ... we get categories from the API
@@ -71,7 +75,9 @@ describe('modules/Category/categories.reducer', () => {
       // then ... should succeed with API data
       expect(nextStub).toHaveBeenCalledWith(action)
       expect(getCategoriesStub).toHaveBeenCalledWith()
-      expect(dispatchStub).toHaveBeenCalledWith(apiGetCategoriesFailure('ERROR MESSAGE'))
+      expect(dispatchStub).toHaveBeenCalledWith(
+        apiGetCategoriesFailure('ERROR MESSAGE'),
+      )
     })
   })
 

@@ -6,7 +6,5 @@ import middleware from './middleware'
 
 export default createStore(
   rootReducer,
-  composeWithDevTools(
-    applyMiddleware(...middleware),
-  ),
+  composeWithDevTools(applyMiddleware(...middleware)),
 )

@@ -18,25 +18,25 @@ describe('modules/Content/ContentDetail/ContentDetail.selector', () => {
     // when ... we select for ContentDetail component's props
     // then ... should return all expected keys
     const result = SUT.ContentDetailComponentSelector(state)
-    expect(keys(result)).toEqual([
-      'markdown',
-      'isLoading',
-    ])
+    expect(keys(result)).toEqual(['markdown', 'isLoading'])
   })
 
-  parametrize([
-    [{ 1: { label: 'CONTENT 1', markdown: null } }, null, false],
-    [{ 1: { label: 'CONTENT 1', markdown: null } }, 1, true],
-    [{ 1: { label: 'CONTENT 1', markdown: 'MARKDOWN' } }, 1, false],
-  ], (contents, selectedContent, expected) => {
-    it('should correctly select is loading based on selected content markdown state', () => {
-      // given ... the provided contents and selected content
-      const state = { contents, selectedContent }
+  parametrize(
+    [
+      [{ 1: { label: 'CONTENT 1', markdown: null } }, null, false],
+      [{ 1: { label: 'CONTENT 1', markdown: null } }, 1, true],
+      [{ 1: { label: 'CONTENT 1', markdown: 'MARKDOWN' } }, 1, false],
+    ],
+    (contents, selectedContent, expected) => {
+      it('should correctly select is loading based on selected content markdown state', () => {
+        // given ... the provided contents and selected content
+        const state = { contents, selectedContent }
 
-      // when ... we select for ContentDetail component's props
-      // then ... should return isLoading as expected
-      const result = SUT.ContentDetailComponentSelector(state)
-      expect(result.isLoading).toEqual(expected)
-    })
-  })
+        // when ... we select for ContentDetail component's props
+        // then ... should return isLoading as expected
+        const result = SUT.ContentDetailComponentSelector(state)
+        expect(result.isLoading).toEqual(expected)
+      })
+    },
+  )
 })

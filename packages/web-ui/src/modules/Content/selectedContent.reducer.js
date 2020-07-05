@@ -5,7 +5,7 @@ import { createReducer } from '@reduxjs/toolkit'
 //---------------------------------
 
 export const SELECT_CONTENT = '[content] select'
-export const selectContent = id => ({ type: SELECT_CONTENT, payload: id })
+export const selectContent = (id) => ({ type: SELECT_CONTENT, payload: id })
 
 //---------------------------------
 // reducers
