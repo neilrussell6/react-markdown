@@ -9,6 +9,7 @@
   ],
   "version": "0.0.0",
   "author": "Neil Russell <neilrussell6@gmail.com>",
+  "license": "ISC",
   "homepage": "./",
   "scripts": {
     "serve": "dotenv -e .env -- nodemon src/index.js",

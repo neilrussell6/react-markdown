@@ -7,6 +7,7 @@
     "markdown"
   ],
   "author": "Neil Russell <neilrussell6@gmail.com>",
+  "license": "ISC",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/neilrussell6/react-markdown.git"
