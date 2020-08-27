@@ -34,7 +34,9 @@ export const contentsForSelectedCategorySelector = createSelector(
 export const selectedContentSelector = createSelector(
   [contentsSelector, prop('selectedContent')],
   ({ contents }, selectedContent) =>
-    isNil(selectedContent) ? null : reduce(
-      (result, x) => x.id === selectedContent.toString() ? x : result)
-    (null)(contents),
+    isNil(selectedContent)
+      ? null
+      : reduce((result, x) =>
+          x.id === selectedContent.toString() ? x : result,
+        )(null)(contents),
 )

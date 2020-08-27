@@ -128,7 +128,9 @@ export const setContentFlow = ({ dispatch }) => (next) => (action) => {
 // ... signals intention to deselect content
 //---------------------------------
 
-export const deselectContentFlow = ({ SELECT_CATEGORY }) => ({ dispatch }) => (next) => (action) => {
+export const deselectContentFlow = ({ SELECT_CATEGORY }) => ({ dispatch }) => (
+  next,
+) => (action) => {
   next(action)
 
   const { type } = action

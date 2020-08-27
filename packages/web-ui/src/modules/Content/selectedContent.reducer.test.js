@@ -1,4 +1,8 @@
-import SUT, { deselectContent, INITIAL_STATE, selectContent } from './selectedContent.reducer'
+import SUT, {
+  deselectContent,
+  INITIAL_STATE,
+  selectContent,
+} from './selectedContent.reducer'
 
 describe('modules/Content/selectedContent.reducer', () => {
   describe('selectContent', () => {

@@ -3,7 +3,7 @@ services:
   tests:
     build:
       context: ../../
-      dockerfile: ""
+      dockerfile: ''
     command: npx npm-run-all bootstrap _hang
     depends_on:
       - postgres_test

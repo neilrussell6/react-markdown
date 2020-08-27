@@ -23,10 +23,40 @@ describe('modules/Content/ContentDetail/ContentDetail.selector', () => {
 
   parametrize(
     [
-      [{ 1: { label: 'CONTENT 1', markdown: null, markdownContent: null } }, null],
-      [{ 1: { label: 'CONTENT 1', markdown: null, markdownContent: 'MARKDOWN CONTENT' } }, 'MARKDOWN CONTENT'],
-      [{ 1: { label: 'CONTENT 1', markdown: 'http://markdown-url', markdownContent: null } }, null],
-      [{ 1: { label: 'CONTENT 1', markdown: 'http://markdown-url', markdownContent: 'MARKDOWN CONTENT' } }, 'MARKDOWN CONTENT'],
+      [
+        { 1: { label: 'CONTENT 1', markdown: null, markdownContent: null } },
+        null,
+      ],
+      [
+        {
+          1: {
+            label: 'CONTENT 1',
+            markdown: null,
+            markdownContent: 'MARKDOWN CONTENT',
+          },
+        },
+        'MARKDOWN CONTENT',
+      ],
+      [
+        {
+          1: {
+            label: 'CONTENT 1',
+            markdown: 'http://markdown-url',
+            markdownContent: null,
+          },
+        },
+        null,
+      ],
+      [
+        {
+          1: {
+            label: 'CONTENT 1',
+            markdown: 'http://markdown-url',
+            markdownContent: 'MARKDOWN CONTENT',
+          },
+        },
+        'MARKDOWN CONTENT',
+      ],
     ],
     (contents, expected) => {
       it('should correctly select markdown content not markdown url', () => {
@@ -43,9 +73,33 @@ describe('modules/Content/ContentDetail/ContentDetail.selector', () => {
 
   parametrize(
     [
-      [{ 1: { label: 'CONTENT 1', markdown: null, markdownContent: null } }, null, false],
-      [{ 1: { label: 'CONTENT 1', markdown: 'http://markdown-url', markdownContent: null } }, 1, true],
-      [{ 1: { label: 'CONTENT 1', markdown: 'http://markdown-url', markdownContent: 'MARKDOWN CONTENT' } }, 1, false],
+      [
+        { 1: { label: 'CONTENT 1', markdown: null, markdownContent: null } },
+        null,
+        false,
+      ],
+      [
+        {
+          1: {
+            label: 'CONTENT 1',
+            markdown: 'http://markdown-url',
+            markdownContent: null,
+          },
+        },
+        1,
+        true,
+      ],
+      [
+        {
+          1: {
+            label: 'CONTENT 1',
+            markdown: 'http://markdown-url',
+            markdownContent: 'MARKDOWN CONTENT',
+          },
+        },
+        1,
+        false,
+      ],
     ],
     (contents, selectedContent, expected) => {
       it('should correctly select is loading based on selected content markdown state', () => {
