@@ -1,0 +1,4 @@
+{
+  "APP_ROOT_PATH": "/var/task",
+  "ENVIRONMENT": "aws"
+}

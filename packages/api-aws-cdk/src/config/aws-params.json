@@ -1,0 +1,8 @@
+{
+  "STAGE": "stage",
+  "LOG_LEVEL": "logLevel",
+  "PG_DATABASE": "postgres/db",
+  "PG_HOST": "postgres/host",
+  "PG_PORT": "postgres/port",
+  "PG_USER": "postgres/user"
+}

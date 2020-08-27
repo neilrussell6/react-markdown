@@ -1,0 +1,9 @@
+{
+  "test": "run all unit tests",
+  "test:watch": "run all unit tests in watch mode",
+  "code:format": "auto format all code",
+  "code:lint": "lint all code",
+  "start:build": "rebuild and run API locally (on port 7000), includes Postgres DB",
+  "start": "run API locally (on port 7000), includes Postgres DB",
+  "init": "initialize the package"
+}

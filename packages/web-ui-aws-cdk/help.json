@@ -1,0 +1,16 @@
+{
+  "cdk:ls": "list CDK apps ``npm run cdk:ls [stage, stack]``",
+  "cdk:synth": "generate cloudformation template for all stacks ``npm run cdk:synth [stage, stack]``",
+  "cdk:diff": "check diff in stack?",
+  "cdk:bootstrap": "bootstrap CDK deployment to dev stage (only required once before first deploy to new AWS account?) ``npm run cdk:bootstrap <stage>``",
+  "cdk:deploy": "build and deploy provided CDK stacks to provided stage ``npm run cdk:deploy <stage>``",
+  "cdk:destroy": "delete provided CDK stacks on stage ``npm run cdk:destroy <stage>``",
+  "code:build": "compile Typescript",
+  "code:build:watch": "compile Typescript in watch mode",
+  "test": "run all tests",
+  "test:watch": "run all tests in watch mode",
+  "code:format": "auto format all code",
+  "code:lint": "lint all code",
+  "sdk:cf": "get cloudfront URL for stage ``npm run cdk:cf <stage>``",
+  "init": "initialize the package"
+}

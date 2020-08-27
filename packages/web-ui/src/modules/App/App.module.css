@@ -1,0 +1,67 @@
+/* container */
+
+.container {
+  display: flex;
+  flex-direction: column;
+}
+
+/* header */
+
+.header {
+  background-color: var(--header-bg-color);
+  border-bottom: 1px solid var(--header-bdr-color);
+  font-size: var(--header-title-font-size);
+  font-weight: bold;
+  padding: 0;
+  display: flex;
+  justify-content: left;
+  align-items: stretch;
+  overflow: hidden;
+  flex: 0 0 80px;
+}
+
+.header .title {
+  background-color: var(--header-title-bg-color);
+  border-right: 1px solid var(--header-title-bdr-color);
+  font-family: var(--header-title-font-family);
+  color: var(--header-title-text-color);
+  padding: 20px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: left;
+  flex: 0 0 220px;
+  max-width: 220px;
+  user-select: none;
+  text-transform: uppercase;
+}
+
+.header .nav {
+  background-color: var(--header-nav-bg-color);
+  padding: 0;
+  flex: 1 0;
+  display: flex;
+  align-items: stretch;
+}
+
+/* body */
+
+.body {
+  background-color: var(--body-bg-color);
+  flex: 1 0;
+  display: flex;
+  flex-direction: row;
+}
+
+.body .nav {
+  background-color: var(--body-nav-bg-color);
+  border-right: 1px solid var(--body-nav-bdr-color);
+  padding: 20px 0;
+  flex: 0 0 260px;
+  max-width: 260px;
+  overflow: hidden;
+}
+
+.body .main {
+  padding: 0;
+  flex: 1 0;
+}

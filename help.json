@@ -1,0 +1,20 @@
+{
+  "ls": "list all packages",
+  "bootstrap": "bootstrap all packages, installing all their dependencies and linking any cross-dependencies",
+  "lerna:update": "update Lerna",
+  "publish": "publish new version (through Lerna)",
+  "test:all": "run all tests on all packages",
+  "code:build": "compile all code in all packages",
+  "code:format": "auto format all code in all packages",
+  "code:lint": "lint all code in all packages",
+  "api:migrate": "run all markdown-api migrations (locally, as configured in packages/api/.env.local)",
+  "api:migrate:dev": "run all markdown-api migrations (on dev stage, as configured in packages/api/.env.dev)",
+  "api:migrate:staging": "run all markdown-api migrations (on staging stage, as configured in packages/api/.env.staging)",
+  "api:migrate:test": "run all markdown-api migrations (for tests, as configured in packages/api/.env.test)",
+  "api:start:build": "rebuild and serve markdown-api and postgres db locally (on port 7000)",
+  "api:start": "serve api and postgres db locally (on port 7000)",
+  "api:serve": "serve api package locally",
+  "web-ui:serve": "serve web-ui package locally",
+  "web-ui:build": "build web-ui package",
+  "init": "initialize project (including all packages)"
+}

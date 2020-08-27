@@ -1,0 +1,56 @@
+:root {
+  --nav-box-shadow-color: rgba(64, 133, 175, 0);
+  --nav-box-shadow-color-hover: rgba(64, 133, 175, 0.35);
+  --nav-box-shadow-color-selected: rgba(255, 255, 255, 0.05);
+
+  --text-shadow-color: rgba(0, 0, 0, 0.3);
+
+  /* header */
+  --header-bg-color: var(--grey-dark);
+  --header-bdr-color: var(--grey-med);
+  --header-title-bg-color: var(--grey-dark2);
+  --header-title-bdr-color: var(--grey-med);
+  --header-title-text-color: var(--grey-light3);
+  /* header : nav */
+  --header-nav-bg-color: transparent;
+  /* header : nav : categories */
+  --nav-bg-color: transparent;
+  --nav-bg-color-hover: var(--primary-dark2);
+  --nav-bg-color-selected: var(--primary-dark5);
+  --nav-text-color: var(--primary-light);
+  --nav-text-color-hover: var(--primary-light2);
+  --nav-text-color-selected: var(--secondary-light);
+  --nav-bdr-color: transparent;
+  --nav-bdr-color-hover: var(--primary-med);
+  --nav-bdr-color-selected: var(--secondary-desaturated-dark);
+  --nav-box-shadow: 0 0 40px var(--nav-box-shadow-color);
+  --nav-box-shadow-hover: 0 0 40px var(--nav-box-shadow-color-hover);
+  --nav-box-shadow-selected: 0 0 40px var(--nav-box-shadow-color-selected);
+  --nav-transition: box-shadow 0.5s, border-color 0.6s, color 0.6s;
+  --nav-transition-hover: box-shadow 0.8s, border-color 0.1s, color 0.2s;
+  --nav-transition-selected: box-shadow 0.1s, border-color 0.1s, color 0.2s;
+
+  /* body */
+  --body-bg-color: var(--primary-dark);
+  /* body : nav */
+  --body-nav-bg-color: var(--grey-dark);
+  --body-nav-bdr-color: var(--grey-med);
+
+  /* code */
+  --code-bg-color: var(--primary-dark2);
+  --code-bdr-color: var(--primary-med);
+  --code-box-shadow-color: var(--primary-dark3);
+  --code-box-shadow: 0 0 30px var(--code-box-shadow-color);
+
+  /* text */
+  --text-color: var(--grey-light);
+  --link-text-color: var(--primary-light);
+  --h-text-color: var(--secondary-med);
+  --h1-text-color: var(--text-color);
+  --h1-bg-color: var(--primary-dark2);
+  --h2-text-color: var(--primary-light2);
+  --h2-bg-color: var(--primary-dark4);
+  --h3-text-color: var(--secondary-light);
+  --h-small-text-shadow-color: var(--text-shadow-color);
+  --h-small-text-shadow: 0 0 6px var(--h-small-text-shadow-color);
+}

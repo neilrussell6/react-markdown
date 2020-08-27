@@ -1,0 +1,17 @@
+{
+  "cdk:ls": "list CDK apps",
+  "cdk:synth": "generate cloudformation template for all stacks [stage]",
+  "cdk:diff": "check diff in stack?",
+  "cdk:bootstrap": "bootstrap CDK deployment (only required once before first deploy to new AWS account?)",
+  "cdk:deploy": "build and deploy all CDK stacks to stage ``npm run cdk:deploy <stage>``",
+  "cdk:destroy": "delete all CDK stacks on stage ``npm run cdk:destroy <stage>``",
+  "sdk:rds:ls": "list RDS dev db instances ``npm run sdk:rds:ls <stage>``",
+  "test": "run all tests",
+  "test:watch": "run all tests in watch mode",
+  "code:build": "compile Typescript",
+  "code:build:watch": "compile Typescript in watch mode",
+  "code:format": "auto format all code",
+  "code:lint": "lint all code",
+  "code:bundle": "bundle lambda handler code assets",
+  "init": "initialize the package"
+}

@@ -1,0 +1,30 @@
+version: '3'
+services:
+  api:
+    build:
+      context: ../../
+      dockerfile: packages/api-local/Dockerfile
+    command: npx npm-run-all bootstrap _api:serve
+    depends_on:
+      - postgres
+    environment:
+      # ... Logging
+      LOG_LEVEL: info
+      # ... API
+      PORT: 7000
+      # ... DB
+      DATABASE_URL: postgres://react_markdown_api_local_user:react_markdown_api_local_password@postgres:5432/react_markdown_api_local
+    ports:
+      - '7000:7000'
+    volumes:
+      - ../../:/usr/src/app
+
+  postgres:
+    image: postgres:10.4
+    ports:
+      - '35432:5432'
+    environment:
+      POSTGRES_USER: react_markdown_api_local_user
+      POSTGRES_PASSWORD: react_markdown_api_local_password
+      POSTGRES_DB: react_markdown_api_local
+      POSTGRES_PORT: 5432

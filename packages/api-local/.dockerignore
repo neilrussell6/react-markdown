@@ -1,0 +1,3 @@
+# ensure that the Dockerfile COPY command ignores the node_modules directories
+# within packages, so fresh installs occur as part of the image build
+packages/**/node_modules

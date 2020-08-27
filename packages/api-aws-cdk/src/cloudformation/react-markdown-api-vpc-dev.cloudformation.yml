@@ -1,0 +1,402 @@
+Resources:
+  reactmarkdownapivpcdev8249BAF0:
+    Type: AWS::EC2::VPC
+    Properties:
+      CidrBlock: 10.0.0.0/16
+      EnableDnsHostnames: true
+      EnableDnsSupport: true
+      InstanceTenancy: default
+      Tags:
+        - Key: Name
+          Value: react-markdown-api-vpc-dev/react-markdown-api-vpc-dev
+    Metadata:
+      aws:cdk:path: react-markdown-api-vpc-dev/react-markdown-api-vpc-dev/Resource
+  reactmarkdownapivpcdevpublicrdsSubnet1SubnetDEA57BDA:
+    Type: AWS::EC2::Subnet
+    Properties:
+      CidrBlock: 10.0.0.0/24
+      VpcId:
+        Ref: reactmarkdownapivpcdev8249BAF0
+      AvailabilityZone:
+        Fn::Select:
+          - 0
+          - Fn::GetAZs: ""
+      MapPublicIpOnLaunch: true
+      Tags:
+        - Key: aws-cdk:subnet-name
+          Value: public-rds
+        - Key: aws-cdk:subnet-type
+          Value: Public
+        - Key: Name
+          Value: react-markdown-api-vpc-dev/react-markdown-api-vpc-dev/public-rdsSubnet1
+    Metadata:
+      aws:cdk:path: react-markdown-api-vpc-dev/react-markdown-api-vpc-dev/public-rdsSubnet1/Subnet
+  reactmarkdownapivpcdevpublicrdsSubnet1RouteTable4511AC64:
+    Type: AWS::EC2::RouteTable
+    Properties:
+      VpcId:
+        Ref: reactmarkdownapivpcdev8249BAF0
+      Tags:
+        - Key: Name
+          Value: react-markdown-api-vpc-dev/react-markdown-api-vpc-dev/public-rdsSubnet1
+    Metadata:
+      aws:cdk:path: react-markdown-api-vpc-dev/react-markdown-api-vpc-dev/public-rdsSubnet1/RouteTable
+  reactmarkdownapivpcdevpublicrdsSubnet1RouteTableAssociationB7AB32CC:
+    Type: AWS::EC2::SubnetRouteTableAssociation
+    Properties:
+      RouteTableId:
+        Ref: reactmarkdownapivpcdevpublicrdsSubnet1RouteTable4511AC64
+      SubnetId:
+        Ref: reactmarkdownapivpcdevpublicrdsSubnet1SubnetDEA57BDA
+    Metadata:
+      aws:cdk:path: react-markdown-api-vpc-dev/react-markdown-api-vpc-dev/public-rdsSubnet1/RouteTableAssociation
+  reactmarkdownapivpcdevpublicrdsSubnet1DefaultRouteCEF0F037:
+    Type: AWS::EC2::Route
+    Properties:
+      RouteTableId:
+        Ref: reactmarkdownapivpcdevpublicrdsSubnet1RouteTable4511AC64
+      DestinationCidrBlock: 0.0.0.0/0
+      GatewayId:
+        Ref: reactmarkdownapivpcdevIGWFA908955
+    DependsOn:
+      - reactmarkdownapivpcdevVPCGWFC8FADE7
+    Metadata:
+      aws:cdk:path: react-markdown-api-vpc-dev/react-markdown-api-vpc-dev/public-rdsSubnet1/DefaultRoute
+  reactmarkdownapivpcdevpublicrdsSubnet1EIP596DA41C:
+    Type: AWS::EC2::EIP
+    Properties:
+      Domain: vpc
+      Tags:
+        - Key: Name
+          Value: react-markdown-api-vpc-dev/react-markdown-api-vpc-dev/public-rdsSubnet1
+    Metadata:
+      aws:cdk:path: react-markdown-api-vpc-dev/react-markdown-api-vpc-dev/public-rdsSubnet1/EIP
+  reactmarkdownapivpcdevpublicrdsSubnet1NATGateway91394FDF:
+    Type: AWS::EC2::NatGateway
+    Properties:
+      AllocationId:
+        Fn::GetAtt:
+          - reactmarkdownapivpcdevpublicrdsSubnet1EIP596DA41C
+          - AllocationId
+      SubnetId:
+        Ref: reactmarkdownapivpcdevpublicrdsSubnet1SubnetDEA57BDA
+      Tags:
+        - Key: Name
+          Value: react-markdown-api-vpc-dev/react-markdown-api-vpc-dev/public-rdsSubnet1
+    Metadata:
+      aws:cdk:path: react-markdown-api-vpc-dev/react-markdown-api-vpc-dev/public-rdsSubnet1/NATGateway
+  reactmarkdownapivpcdevpublicrdsSubnet2Subnet94204609:
+    Type: AWS::EC2::Subnet
+    Properties:
+      CidrBlock: 10.0.1.0/24
+      VpcId:
+        Ref: reactmarkdownapivpcdev8249BAF0
+      AvailabilityZone:
+        Fn::Select:
+          - 1
+          - Fn::GetAZs: ""
+      MapPublicIpOnLaunch: true
+      Tags:
+        - Key: aws-cdk:subnet-name
+          Value: public-rds
+        - Key: aws-cdk:subnet-type
+          Value: Public
+        - Key: Name
+          Value: react-markdown-api-vpc-dev/react-markdown-api-vpc-dev/public-rdsSubnet2
+    Metadata:
+      aws:cdk:path: react-markdown-api-vpc-dev/react-markdown-api-vpc-dev/public-rdsSubnet2/Subnet
+  reactmarkdownapivpcdevpublicrdsSubnet2RouteTable11BD5333:
+    Type: AWS::EC2::RouteTable
+    Properties:
+      VpcId:
+        Ref: reactmarkdownapivpcdev8249BAF0
+      Tags:
+        - Key: Name
+          Value: react-markdown-api-vpc-dev/react-markdown-api-vpc-dev/public-rdsSubnet2
+    Metadata:
+      aws:cdk:path: react-markdown-api-vpc-dev/react-markdown-api-vpc-dev/public-rdsSubnet2/RouteTable
+  reactmarkdownapivpcdevpublicrdsSubnet2RouteTableAssociation9127C0D2:
+    Type: AWS::EC2::SubnetRouteTableAssociation
+    Properties:
+      RouteTableId:
+        Ref: reactmarkdownapivpcdevpublicrdsSubnet2RouteTable11BD5333
+      SubnetId:
+        Ref: reactmarkdownapivpcdevpublicrdsSubnet2Subnet94204609
+    Metadata:
+      aws:cdk:path: react-markdown-api-vpc-dev/react-markdown-api-vpc-dev/public-rdsSubnet2/RouteTableAssociation
+  reactmarkdownapivpcdevpublicrdsSubnet2DefaultRoute5D84D79F:
+    Type: AWS::EC2::Route
+    Properties:
+      RouteTableId:
+        Ref: reactmarkdownapivpcdevpublicrdsSubnet2RouteTable11BD5333
+      DestinationCidrBlock: 0.0.0.0/0
+      GatewayId:
+        Ref: reactmarkdownapivpcdevIGWFA908955
+    DependsOn:
+      - reactmarkdownapivpcdevVPCGWFC8FADE7
+    Metadata:
+      aws:cdk:path: react-markdown-api-vpc-dev/react-markdown-api-vpc-dev/public-rdsSubnet2/DefaultRoute
+  reactmarkdownapivpcdevprivatelambdasSubnet1Subnet3BDFFB06:
+    Type: AWS::EC2::Subnet
+    Properties:
+      CidrBlock: 10.0.2.0/24
+      VpcId:
+        Ref: reactmarkdownapivpcdev8249BAF0
+      AvailabilityZone:
+        Fn::Select:
+          - 0
+          - Fn::GetAZs: ""
+      MapPublicIpOnLaunch: false
+      Tags:
+        - Key: aws-cdk:subnet-name
+          Value: private-lambdas
+        - Key: aws-cdk:subnet-type
+          Value: Private
+        - Key: Name
+          Value: react-markdown-api-vpc-dev/react-markdown-api-vpc-dev/private-lambdasSubnet1
+    Metadata:
+      aws:cdk:path: react-markdown-api-vpc-dev/react-markdown-api-vpc-dev/private-lambdasSubnet1/Subnet
+  reactmarkdownapivpcdevprivatelambdasSubnet1RouteTable3C4143BD:
+    Type: AWS::EC2::RouteTable
+    Properties:
+      VpcId:
+        Ref: reactmarkdownapivpcdev8249BAF0
+      Tags:
+        - Key: Name
+          Value: react-markdown-api-vpc-dev/react-markdown-api-vpc-dev/private-lambdasSubnet1
+    Metadata:
+      aws:cdk:path: react-markdown-api-vpc-dev/react-markdown-api-vpc-dev/private-lambdasSubnet1/RouteTable
+  reactmarkdownapivpcdevprivatelambdasSubnet1RouteTableAssociation10B65C2D:
+    Type: AWS::EC2::SubnetRouteTableAssociation
+    Properties:
+      RouteTableId:
+        Ref: reactmarkdownapivpcdevprivatelambdasSubnet1RouteTable3C4143BD
+      SubnetId:
+        Ref: reactmarkdownapivpcdevprivatelambdasSubnet1Subnet3BDFFB06
+    Metadata:
+      aws:cdk:path: react-markdown-api-vpc-dev/react-markdown-api-vpc-dev/private-lambdasSubnet1/RouteTableAssociation
+  reactmarkdownapivpcdevprivatelambdasSubnet1DefaultRoute7DBD0FDD:
+    Type: AWS::EC2::Route
+    Properties:
+      RouteTableId:
+        Ref: reactmarkdownapivpcdevprivatelambdasSubnet1RouteTable3C4143BD
+      DestinationCidrBlock: 0.0.0.0/0
+      NatGatewayId:
+        Ref: reactmarkdownapivpcdevpublicrdsSubnet1NATGateway91394FDF
+    Metadata:
+      aws:cdk:path: react-markdown-api-vpc-dev/react-markdown-api-vpc-dev/private-lambdasSubnet1/DefaultRoute
+  reactmarkdownapivpcdevprivatelambdasSubnet2SubnetA4836C2A:
+    Type: AWS::EC2::Subnet
+    Properties:
+      CidrBlock: 10.0.3.0/24
+      VpcId:
+        Ref: reactmarkdownapivpcdev8249BAF0
+      AvailabilityZone:
+        Fn::Select:
+          - 1
+          - Fn::GetAZs: ""
+      MapPublicIpOnLaunch: false
+      Tags:
+        - Key: aws-cdk:subnet-name
+          Value: private-lambdas
+        - Key: aws-cdk:subnet-type
+          Value: Private
+        - Key: Name
+          Value: react-markdown-api-vpc-dev/react-markdown-api-vpc-dev/private-lambdasSubnet2
+    Metadata:
+      aws:cdk:path: react-markdown-api-vpc-dev/react-markdown-api-vpc-dev/private-lambdasSubnet2/Subnet
+  reactmarkdownapivpcdevprivatelambdasSubnet2RouteTable21885F0D:
+    Type: AWS::EC2::RouteTable
+    Properties:
+      VpcId:
+        Ref: reactmarkdownapivpcdev8249BAF0
+      Tags:
+        - Key: Name
+          Value: react-markdown-api-vpc-dev/react-markdown-api-vpc-dev/private-lambdasSubnet2
+    Metadata:
+      aws:cdk:path: react-markdown-api-vpc-dev/react-markdown-api-vpc-dev/private-lambdasSubnet2/RouteTable
+  reactmarkdownapivpcdevprivatelambdasSubnet2RouteTableAssociationEDE0F941:
+    Type: AWS::EC2::SubnetRouteTableAssociation
+    Properties:
+      RouteTableId:
+        Ref: reactmarkdownapivpcdevprivatelambdasSubnet2RouteTable21885F0D
+      SubnetId:
+        Ref: reactmarkdownapivpcdevprivatelambdasSubnet2SubnetA4836C2A
+    Metadata:
+      aws:cdk:path: react-markdown-api-vpc-dev/react-markdown-api-vpc-dev/private-lambdasSubnet2/RouteTableAssociation
+  reactmarkdownapivpcdevprivatelambdasSubnet2DefaultRouteF5770BD7:
+    Type: AWS::EC2::Route
+    Properties:
+      RouteTableId:
+        Ref: reactmarkdownapivpcdevprivatelambdasSubnet2RouteTable21885F0D
+      DestinationCidrBlock: 0.0.0.0/0
+      NatGatewayId:
+        Ref: reactmarkdownapivpcdevpublicrdsSubnet1NATGateway91394FDF
+    Metadata:
+      aws:cdk:path: react-markdown-api-vpc-dev/react-markdown-api-vpc-dev/private-lambdasSubnet2/DefaultRoute
+  reactmarkdownapivpcdevIGWFA908955:
+    Type: AWS::EC2::InternetGateway
+    Properties:
+      Tags:
+        - Key: Name
+          Value: react-markdown-api-vpc-dev/react-markdown-api-vpc-dev
+    Metadata:
+      aws:cdk:path: react-markdown-api-vpc-dev/react-markdown-api-vpc-dev/IGW
+  reactmarkdownapivpcdevVPCGWFC8FADE7:
+    Type: AWS::EC2::VPCGatewayAttachment
+    Properties:
+      VpcId:
+        Ref: reactmarkdownapivpcdev8249BAF0
+      InternetGatewayId:
+        Ref: reactmarkdownapivpcdevIGWFA908955
+    Metadata:
+      aws:cdk:path: react-markdown-api-vpc-dev/react-markdown-api-vpc-dev/VPCGW
+  reactmarkdownapivpcdevrdssecuritygroup514D1E38:
+    Type: AWS::EC2::SecurityGroup
+    Properties:
+      GroupDescription: RDS Security Group for react-markdown-api-vpc-dev VPC
+      GroupName: react-markdown-api-vpc-dev-rds-security-group
+      SecurityGroupEgress:
+        - CidrIp: 0.0.0.0/0
+          Description: Allow all outbound traffic by default
+          IpProtocol: "-1"
+      VpcId:
+        Ref: reactmarkdownapivpcdev8249BAF0
+    Metadata:
+      aws:cdk:path: react-markdown-api-vpc-dev/react-markdown-api-vpc-dev-rds-security-group/Resource
+  reactmarkdownapivpcdevrdssecuritygroupfromreactmarkdownapivpcdevreactmarkdownapivpcdevlambdasecuritygroup32F65C5854321EDAF8F0:
+    Type: AWS::EC2::SecurityGroupIngress
+    Properties:
+      IpProtocol: tcp
+      Description: from reactmarkdownapivpcdevreactmarkdownapivpcdevlambdasecuritygroup32F65C58:5432
+      FromPort: 5432
+      GroupId:
+        Fn::GetAtt:
+          - reactmarkdownapivpcdevrdssecuritygroup514D1E38
+          - GroupId
+      SourceSecurityGroupId:
+        Fn::GetAtt:
+          - reactmarkdownapivpcdevlambdasecuritygroupDD1E25F5
+          - GroupId
+      ToPort: 5432
+    Metadata:
+      aws:cdk:path: react-markdown-api-vpc-dev/react-markdown-api-vpc-dev-rds-security-group/from reactmarkdownapivpcdevreactmarkdownapivpcdevlambdasecuritygroup32F65C58:5432
+  reactmarkdownapivpcdevlambdasecuritygroupDD1E25F5:
+    Type: AWS::EC2::SecurityGroup
+    Properties:
+      GroupDescription: Lambda Security Group for react-markdown-api-vpc-dev VPC
+      GroupName: react-markdown-api-vpc-dev-lambda-security-group
+      SecurityGroupEgress:
+        - CidrIp: 0.0.0.0/0
+          Description: Allow all outbound traffic by default
+          IpProtocol: "-1"
+      VpcId:
+        Ref: reactmarkdownapivpcdev8249BAF0
+    Metadata:
+      aws:cdk:path: react-markdown-api-vpc-dev/react-markdown-api-vpc-dev-lambda-security-group/Resource
+  CDKMetadata:
+    Type: AWS::CDK::Metadata
+    Properties:
+      Modules: aws-cdk=1.58.0,@aws-cdk/assets=1.47.0,@aws-cdk/aws-apigateway=1.47.0,@aws-cdk/aws-cloudwatch=1.47.0,@aws-cdk/aws-ec2=1.47.0,@aws-cdk/aws-events=1.47.0,@aws-cdk/aws-iam=1.47.0,@aws-cdk/aws-kms=1.47.0,@aws-cdk/aws-lambda=1.47.0,@aws-cdk/aws-logs=1.47.0,@aws-cdk/aws-rds=1.47.0,@aws-cdk/aws-s3=1.47.0,@aws-cdk/aws-s3-assets=1.47.0,@aws-cdk/aws-sam=1.47.0,@aws-cdk/aws-secretsmanager=1.47.0,@aws-cdk/aws-sqs=1.47.0,@aws-cdk/aws-ssm=1.47.0,@aws-cdk/cloud-assembly-schema=1.47.0,@aws-cdk/core=1.47.0,@aws-cdk/cx-api=1.47.0,@aws-cdk/region-info=1.47.0,jsii-runtime=node.js/v12.18.3
+    Condition: CDKMetadataAvailable
+Outputs:
+  ExportsOutputRefreactmarkdownapivpcdevpublicrdsSubnet1SubnetDEA57BDA359B820B:
+    Value:
+      Ref: reactmarkdownapivpcdevpublicrdsSubnet1SubnetDEA57BDA
+    Export:
+      Name: react-markdown-api-vpc-dev:ExportsOutputRefreactmarkdownapivpcdevpublicrdsSubnet1SubnetDEA57BDA359B820B
+  ExportsOutputRefreactmarkdownapivpcdevpublicrdsSubnet2Subnet942046090D056B0A:
+    Value:
+      Ref: reactmarkdownapivpcdevpublicrdsSubnet2Subnet94204609
+    Export:
+      Name: react-markdown-api-vpc-dev:ExportsOutputRefreactmarkdownapivpcdevpublicrdsSubnet2Subnet942046090D056B0A
+  ExportsOutputFnGetAttreactmarkdownapivpcdevrdssecuritygroup514D1E38GroupId77DA7647:
+    Value:
+      Fn::GetAtt:
+        - reactmarkdownapivpcdevrdssecuritygroup514D1E38
+        - GroupId
+    Export:
+      Name: react-markdown-api-vpc-dev:ExportsOutputFnGetAttreactmarkdownapivpcdevrdssecuritygroup514D1E38GroupId77DA7647
+  ExportsOutputRefreactmarkdownapivpcdevprivatelambdasSubnet1Subnet3BDFFB063A524DD1:
+    Value:
+      Ref: reactmarkdownapivpcdevprivatelambdasSubnet1Subnet3BDFFB06
+    Export:
+      Name: react-markdown-api-vpc-dev:ExportsOutputRefreactmarkdownapivpcdevprivatelambdasSubnet1Subnet3BDFFB063A524DD1
+  ExportsOutputRefreactmarkdownapivpcdevprivatelambdasSubnet2SubnetA4836C2AE11C8AD5:
+    Value:
+      Ref: reactmarkdownapivpcdevprivatelambdasSubnet2SubnetA4836C2A
+    Export:
+      Name: react-markdown-api-vpc-dev:ExportsOutputRefreactmarkdownapivpcdevprivatelambdasSubnet2SubnetA4836C2AE11C8AD5
+  ExportsOutputFnGetAttreactmarkdownapivpcdevlambdasecuritygroupDD1E25F5GroupId83E4548B:
+    Value:
+      Fn::GetAtt:
+        - reactmarkdownapivpcdevlambdasecuritygroupDD1E25F5
+        - GroupId
+    Export:
+      Name: react-markdown-api-vpc-dev:ExportsOutputFnGetAttreactmarkdownapivpcdevlambdasecuritygroupDD1E25F5GroupId83E4548B
+Conditions:
+  CDKMetadataAvailable:
+    Fn::Or:
+      - Fn::Or:
+          - Fn::Equals:
+              - Ref: AWS::Region
+              - ap-east-1
+          - Fn::Equals:
+              - Ref: AWS::Region
+              - ap-northeast-1
+          - Fn::Equals:
+              - Ref: AWS::Region
+              - ap-northeast-2
+          - Fn::Equals:
+              - Ref: AWS::Region
+              - ap-south-1
+          - Fn::Equals:
+              - Ref: AWS::Region
+              - ap-southeast-1
+          - Fn::Equals:
+              - Ref: AWS::Region
+              - ap-southeast-2
+          - Fn::Equals:
+              - Ref: AWS::Region
+              - ca-central-1
+          - Fn::Equals:
+              - Ref: AWS::Region
+              - cn-north-1
+          - Fn::Equals:
+              - Ref: AWS::Region
+              - cn-northwest-1
+          - Fn::Equals:
+              - Ref: AWS::Region
+              - eu-central-1
+      - Fn::Or:
+          - Fn::Equals:
+              - Ref: AWS::Region
+              - eu-north-1
+          - Fn::Equals:
+              - Ref: AWS::Region
+              - eu-west-1
+          - Fn::Equals:
+              - Ref: AWS::Region
+              - eu-west-2
+          - Fn::Equals:
+              - Ref: AWS::Region
+              - eu-west-3
+          - Fn::Equals:
+              - Ref: AWS::Region
+              - me-south-1
+          - Fn::Equals:
+              - Ref: AWS::Region
+              - sa-east-1
+          - Fn::Equals:
+              - Ref: AWS::Region
+              - us-east-1
+          - Fn::Equals:
+              - Ref: AWS::Region
+              - us-east-2
+          - Fn::Equals:
+              - Ref: AWS::Region
+              - us-west-1
+          - Fn::Equals:
+              - Ref: AWS::Region
+              - us-west-2
+

@@ -1,0 +1,23 @@
+version: '3'
+services:
+  tests:
+    build:
+      context: ../../
+      dockerfile: ""
+    command: npx npm-run-all bootstrap _hang
+    depends_on:
+      - postgres_test
+    environment:
+      DATABASE_URL: postgres://api_test_user:api_test_password@postgres_test:5432/api_test
+    volumes:
+      - ../../:/usr/src/app
+
+  postgres_test:
+    image: postgres:10.4
+    ports:
+      - '45432:5432'
+    environment:
+      POSTGRES_USER: api_test_user
+      POSTGRES_PASSWORD: api_test_password
+      POSTGRES_DB: api_test
+      POSTGRES_PORT: 5432

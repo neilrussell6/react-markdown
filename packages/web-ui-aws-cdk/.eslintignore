@@ -1,0 +1,11 @@
+node_modules
+dist
+
+# Typescript definitions
+#
+*.d.ts
+
+# CDK
+#
+.build
+.cache

@@ -1,0 +1,16 @@
+{
+  "test": "run all unit tests",
+  "test:watch": "run all unit tests (in watch mode)",
+  "test:ii": "run all internal integration tests (requires ``migrate:test`` and ``test:start`` to be running",
+  "test:ii:watch": "run all internal integration tests (in watch mode) ( (requires ``migrate:test`` and ``test:start`` to be running)",
+  "test:start": "start test postgres db",
+  "test:start:build": "rebuild and start test postgres db",
+  "migrate:test": "run migrations on test PostgreSQL db ``migrate:test <up|down>``",
+  "code:format": "auto format all code",
+  "code:lint": "lint all code",
+  "migrate": "run all migrations (locally, as configured in .env) ``migrate:local <up|down>``",
+  "migrate:dev": "run all migrations (on dev stage, as configured in .env.dev) ``migrate:dev <up|down>``",
+  "migrate:staging": "run all migrations (on staging stage, as configured in .env.staging) ``migrate:staging <up|down>``",
+  "migrate:create": "create a new migration file `migrate:create <module> <migration name>`",
+  "init": "initialize the package"
+}

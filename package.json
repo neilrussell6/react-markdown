@@ -1,0 +1,66 @@
+{
+  "name": "root",
+  "description": "React Markdown",
+  "keywords": [
+    "react",
+    "markdown"
+  ],
+  "author": "Neil Russell <neilrussell6@gmail.com>",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/neilrussell6/react-markdown.git"
+  },
+  "bugs": {
+    "url": "https://github.com/neilrussell6/react-markdown/issues"
+  },
+  "homepage": "https://github.com/neilrussell6/react-markdown#readme",
+  "scripts": {
+    "ls": "lerna ls",
+    "bootstrap": "lerna bootstrap",
+    "lerna:update": "lernaupdate",
+    "publish": "lerna publish",
+    "_hang": "tail -F anything",
+    "test:all": "lerna run _test:all --stream --concurrency=1 -- --colors",
+    "_test:all:ci": "lerna run _test:all:ci --stream --concurrency=1 -- --colors",
+    "code:build": "lerna run code:build --stream --concurrency=1 -- --colors",
+    "code:format": "lerna run code:format --stream --concurrency=1 -- --colors",
+    "code:lint": "lerna run code:lint --stream --concurrency=1 -- --colors",
+    "_ci:lint": "npm run pkg:lint",
+    "_test:all": "lerna run _test:all --stream --concurrency=1 -- --colors",
+    "_ci:test:all": "lerna run _ci:test:all --stream --concurrency=1 -- --colors",
+    "api:migrate": "npm run migrate --prefix packages/api",
+    "api:migrate:dev": "npm run migrate:dev --prefix packages/api",
+    "api:migrate:staging": "npm run migrate:staging --prefix packages/api",
+    "api:migrate:test": "npm run migrate:test --prefix packages/api",
+    "api:start:build": "npm run start:build --prefix packages/api-local",
+    "_api:start": "npm run start --prefix packages/api-local",
+    "api:start": "npm-run-all bootstrap _api:start",
+    "_api:serve": "npm run _serve --prefix packages/api-local",
+    "web-ui:serve": "npm run serve --prefix packages/web-ui",
+    "_git:pre-commit": "lerna run _git:pre-commit --concurrency 1 --stream",
+    "_git:pre-push": "lerna run _git:pre-push --concurrency 1 --stream",
+    "_init:all": "lerna run init --stream --concurrency=1 -- --colors",
+    "_init:envs": "cp -n .env.tpl .env || true",
+    "init": "npm i && npm run _init:envs && npm run bootstrap && npm run _init:all",
+    "help": "package-json-help.js"
+  },
+  "engines": {
+    "npm": "=6.14.6"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "husky": "^4.2.5",
+    "lerna": "^3.22.1",
+    "lerna-update-wizard": "^0.17.8",
+    "npm-run-all": "^4.1.5",
+    "package-json-help": "0.0.10",
+    "prettier": "^2.0.5"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run _git:pre-commit",
+      "pre-push": "npm run _git:pre-push"
+    }
+  }
+}
