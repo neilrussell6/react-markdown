@@ -1,6 +1,6 @@
 # AWS
 AWS_PROFILE=
-AWS_REGION=
+AWS_DEFAULT_REGION=
 
 #==================================
 # required by
@@ -19,4 +19,4 @@ SECRETS_ARN=
 # ``npm run sdk:rds:ls staging``
 #==================================
 
-RDS_INSTANCE_ID=api-rds-production
+RDS_INSTANCE_ID=react-markdown-api-rds-staging

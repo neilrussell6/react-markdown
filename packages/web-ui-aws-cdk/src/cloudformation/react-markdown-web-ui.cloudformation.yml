@@ -77,7 +77,7 @@ Resources:
           - CustomCDKBucketDeployment8693BB64968944B69AAFB0CC9EB8756C81C01536
           - Arn
       SourceBucketNames:
-        - Ref: AssetParametersa5a13f97e68e8a439a6d740726e3cb96ee5dde993db3fe8275570effff39590aS3BucketB3F4DA56
+        - Ref: AssetParameterse1f9aa5ff0382dbd86628ac55743a264a48d61dba9f6dc92ee626656ad7f6cb9S3BucketA3B2BEA0
       SourceObjectKeys:
         - Fn::Join:
             - ""
@@ -85,12 +85,12 @@ Resources:
                   - 0
                   - Fn::Split:
                       - "||"
-                      - Ref: AssetParametersa5a13f97e68e8a439a6d740726e3cb96ee5dde993db3fe8275570effff39590aS3VersionKeyE76D1104
+                      - Ref: AssetParameterse1f9aa5ff0382dbd86628ac55743a264a48d61dba9f6dc92ee626656ad7f6cb9S3VersionKey11FA927B
               - Fn::Select:
                   - 1
                   - Fn::Split:
                       - "||"
-                      - Ref: AssetParametersa5a13f97e68e8a439a6d740726e3cb96ee5dde993db3fe8275570effff39590aS3VersionKeyE76D1104
+                      - Ref: AssetParameterse1f9aa5ff0382dbd86628ac55743a264a48d61dba9f6dc92ee626656ad7f6cb9S3VersionKey11FA927B
       DestinationBucketName:
         Ref: reactmarkdownwebuidevbucket5FC59F12
       DistributionId:
@@ -133,13 +133,13 @@ Resources:
                   - - "arn:"
                     - Ref: AWS::Partition
                     - ":s3:::"
-                    - Ref: AssetParametersa5a13f97e68e8a439a6d740726e3cb96ee5dde993db3fe8275570effff39590aS3BucketB3F4DA56
+                    - Ref: AssetParameterse1f9aa5ff0382dbd86628ac55743a264a48d61dba9f6dc92ee626656ad7f6cb9S3BucketA3B2BEA0
               - Fn::Join:
                   - ""
                   - - "arn:"
                     - Ref: AWS::Partition
                     - ":s3:::"
-                    - Ref: AssetParametersa5a13f97e68e8a439a6d740726e3cb96ee5dde993db3fe8275570effff39590aS3BucketB3F4DA56
+                    - Ref: AssetParameterse1f9aa5ff0382dbd86628ac55743a264a48d61dba9f6dc92ee626656ad7f6cb9S3BucketA3B2BEA0
                     - /*
           - Action:
               - s3:GetObject*
@@ -218,15 +218,15 @@ Parameters:
   AssetParameters85263806834b4abe18b7438876d0e408b131a41c86272285f069bb9fa96666f0ArtifactHash877EFA91:
     Type: String
     Description: Artifact hash for asset "85263806834b4abe18b7438876d0e408b131a41c86272285f069bb9fa96666f0"
-  AssetParametersa5a13f97e68e8a439a6d740726e3cb96ee5dde993db3fe8275570effff39590aS3BucketB3F4DA56:
+  AssetParameterse1f9aa5ff0382dbd86628ac55743a264a48d61dba9f6dc92ee626656ad7f6cb9S3BucketA3B2BEA0:
     Type: String
-    Description: S3 bucket for asset "a5a13f97e68e8a439a6d740726e3cb96ee5dde993db3fe8275570effff39590a"
-  AssetParametersa5a13f97e68e8a439a6d740726e3cb96ee5dde993db3fe8275570effff39590aS3VersionKeyE76D1104:
+    Description: S3 bucket for asset "e1f9aa5ff0382dbd86628ac55743a264a48d61dba9f6dc92ee626656ad7f6cb9"
+  AssetParameterse1f9aa5ff0382dbd86628ac55743a264a48d61dba9f6dc92ee626656ad7f6cb9S3VersionKey11FA927B:
     Type: String
-    Description: S3 key for asset version "a5a13f97e68e8a439a6d740726e3cb96ee5dde993db3fe8275570effff39590a"
-  AssetParametersa5a13f97e68e8a439a6d740726e3cb96ee5dde993db3fe8275570effff39590aArtifactHashCD91485F:
+    Description: S3 key for asset version "e1f9aa5ff0382dbd86628ac55743a264a48d61dba9f6dc92ee626656ad7f6cb9"
+  AssetParameterse1f9aa5ff0382dbd86628ac55743a264a48d61dba9f6dc92ee626656ad7f6cb9ArtifactHash586AA9CF:
     Type: String
-    Description: Artifact hash for asset "a5a13f97e68e8a439a6d740726e3cb96ee5dde993db3fe8275570effff39590a"
+    Description: Artifact hash for asset "e1f9aa5ff0382dbd86628ac55743a264a48d61dba9f6dc92ee626656ad7f6cb9"
 Outputs:
   CloudfrontDistributionDomainOutput:
     Value:
